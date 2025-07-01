@@ -1,37 +1,44 @@
-# RentCredit Landing Page
+# RentCredit
 
-A modern, responsive landing page for RentCredit - a fintech product that helps tenants build credit through rent payments.
+Welcome to RentCredit - a modern fintech web app for the Indian market, helping tenants build credit through rent payments and enabling landlords to manage rent efficiently. Built with React, Vite, Tailwind CSS, and Firebase.
 
 ## Features
 
-- 🎨 Clean, modern design inspired by fintech brands like Stripe
-- 📱 Fully responsive layout (mobile and desktop)
-- ⚡ Built with React and Tailwind CSS
-- 🚀 Fast development with Vite
-- 🎯 Optimized for conversion with clear CTAs
+- 🎨 Clean, professional UI inspired by leading fintech brands
+- 🌗 Light/Dark mode toggle for optimal user experience
+- 📱 Fully responsive design (mobile & desktop)
+- 🔒 Secure authentication with Firebase Auth
+- 🏠 Role-based dashboards for tenants and landlords
+- 📊 Interactive charts and analytics (CIBIL score, payment history, rent insights)
+- 🧑‍💼 Landlord tools: tenant management, payment confirmation, insights
+- 🧑‍💻 Tenant tools: rent streaks, credit-building progress, payment actions
+- 🚀 Fast development with Vite and Framer Motion animations
+- 🧪 Demo mode for easy preview without authentication
 
 ## Tech Stack
 
-- **React 18** - UI framework
-- **Tailwind CSS** - Styling
-- **Vite** - Build tool and dev server
-- **Inter Font** - Typography
+- **React 18** – UI framework
+- **Tailwind CSS** – Utility-first styling
+- **Vite** – Lightning-fast build tool and dev server
+- **Firebase** – Authentication and Firestore database
+- **Framer Motion** – Animations
+- **Inter Font** – Modern typography
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (version 16 or higher)
+- Node.js (v16 or higher)
 - npm or yarn
 
 ### Installation
 
-1. Clone the repository or navigate to the project directory
+1. Clone the repository or download the project
 2. Install dependencies:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 ### Development
 
@@ -41,7 +48,7 @@ Start the development server:
 npm run dev
 ```
 
-The application will open at `http://localhost:3000`
+The app will be available at `http://localhost:3000`
 
 ### Building for Production
 
@@ -61,22 +68,34 @@ npm run preview
 
 ```
 src/
-├── App.jsx          # Main application component
-├── main.jsx         # React entry point
-└── index.css        # Global styles and Tailwind imports
+├── App.jsx                # Main app component and routing
+├── main.jsx               # React entry point, context providers
+├── AuthContext.jsx        # Authentication and user/role context
+├── LandlordDashboard.jsx  # Landlord dashboard UI & logic
+├── TenantDashboard.jsx    # Tenant dashboard UI & logic
+├── components/            # Reusable UI components and modals
+├── assets/                # Images and logos
+├── index.css              # Global styles and Tailwind imports
+└── utils/                 # Utility functions
 ```
 
-## Design Features
+## Design & UX Highlights
 
-- **Navbar**: Logo with credit card icon, Sign In link, and Get Started button
-- **Hero Section**: Large heading with compelling copy and dual CTAs
-- **Info Section**: Three feature cards explaining the service
-- **Call to Action**: Black background section with final conversion CTA
+- **Header**: Logo, theme toggle, profile dropdown, and smart navigation
+- **Sign Up**: Glassmorphism, password strength meter, validation checklist, animated partner logos
+- **Dashboards**: Modern cards, charts, tables, and actionable insights
+- **Protected Routes**: Role-based access (can be toggled for demo mode)
+- **Demo Mode**: Instantly preview dashboards with mock data (no sign-in required)
 
 ## Customization
 
-The design uses Tailwind CSS with a custom background color (`#f5f7ff`). You can easily modify colors, spacing, and typography by editing the Tailwind classes in the components.
+- Easily adjust colors, spacing, and typography via Tailwind classes
+- To enable/disable authentication, toggle the relevant logic in `AuthContext` and dashboard components
 
 ## License
 
-This project is open source and available under the MIT License. 
+This project is open source and available under the MIT License.
+
+---
+
+Let me know if you want this written directly to your `README.md` or need further customization!
