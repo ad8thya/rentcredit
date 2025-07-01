@@ -96,6 +96,4 @@ src/
 
 This project is open source and available under the MIT License.
 
----
 
-Let me know if you want this written directly to your `README.md` or need further customization!
