@@ -1,99 +1,194 @@
-# RentCredit
 
-Welcome to RentCredit - a modern fintech web app for the Indian market, helping tenants build credit through rent payments and enabling landlords to manage rent efficiently. Built with React, Vite, Tailwind CSS, and Firebase.
+# RentCredit — Rent-based Credit Building & Landlord Dashboard
 
-## Features
+🔗 **Live demo:** https://rentcredit0.netlify.app/  
 
-- 🎨 Clean, professional UI inspired by leading fintech brands
-- 🌗 Light/Dark mode toggle for optimal user experience
-- 📱 Fully responsive design (mobile & desktop)
-- 🔒 Secure authentication with Firebase Auth
-- 🏠 Role-based dashboards for tenants and landlords
-- 📊 Interactive charts and analytics (CIBIL score, payment history, rent insights)
-- 🧑‍💼 Landlord tools: tenant management, payment confirmation, insights
-- 🧑‍💻 Tenant tools: rent streaks, credit-building progress, payment actions
-- 🚀 Fast development with Vite and Framer Motion animations
-- 🧪 Demo mode for easy preview without authentication
+A modern fintech single-page app that helps tenants build credit history from rent payments while giving landlords simple tools to manage tenants and payments. Built as a product-quality student project to demonstrate full-stack design, role-based UX, realtime feedback, and pragmatic deployment.
 
-## Tech Stack
+---
 
-- **React 18** – UI framework
-- **Tailwind CSS** – Utility-first styling
-- **Vite** – Lightning-fast build tool and dev server
-- **Firebase** – Authentication and Firestore database
-- **Framer Motion** – Animations
-- **Inter Font** – Modern typography
+## Problem we solve
+In many rental markets, rent payments do not contribute to tenants' credit histories. Tenants who pay reliably receive little formal credit recognition, and landlords lack streamlined tools to manage rents and tenant relationships. RentCredit is a lightweight product prototype that simulates credit-building via rent history and provides actionable dashboards for both tenants and landlords.
 
-## Getting Started
+---
 
-### Prerequisites
+## Key features
+- ✅ Role-based access: tenant and landlord dashboards  
+- ✅ Secure authentication using Firebase (email/password)  
+- ✅ Responsive UI with light/dark mode and smooth animations  
+- ✅ Tenant features: rent payment actions, rent streaks, simulated credit score, payment history  
+- ✅ Landlord features: tenant management, payment confirmations, insights panel  
+- ✅ Demo mode with mock data so reviewers can try the app without configuring backend keys  
+- ✅ Clean, componentized React codebase for fast iteration
 
-- Node.js (v16 or higher)
-- npm or yarn
+---
 
-### Installation
+## Tech stack
+- **Frontend:** React (Vite) + Tailwind CSS  
+- **Animations:** Framer Motion  
+- **Backend-as-a-Service:** Firebase Auth + Firestore  
+- **Hosting / Demo:** Netlify (live demo)  
+- **Dev tooling:** Node.js, npm, ESLint, Prettier
 
-1. Clone the repository or download the project
-2. Install dependencies:
+---
 
-   ```bash
-   npm install
-   ```
+## Live demo & screenshots
+- **Live demo:** https://rentcredit0.netlify.app/  
+- Add screenshots to `/docs/screenshots/` and reference them here, for example:
+  - `docs/screenshots/login.png` — Login / Demo mode  
+  - `docs/screenshots/tenant-dashboard.png` — Tenant dashboard & credit chart  
+  - `docs/screenshots/landlord-dashboard.png` — Landlord view & tenant list  
+  - `docs/screenshots/demo-gif.gif` — Quick 10–20s walkthrough (optional)
 
-### Development
+Embed example:
+```md
+![Login screen](docs/screenshots/login.png)
+![Tenant dashboard](docs/screenshots/tenant-dashboard.png)
+````
 
-Start the development server:
+---
 
-```bash
-npm run dev
+## Architecture (high level)
+
+```
+[Browser SPA (React)]
+    ↕ Web client (Firestore SDK / REST)
+[Firebase Auth]  <- authentication
+[Firestore]      <- user profiles, payments, tenant collections, analytics
 ```
 
-The app will be available at `http://localhost:3000`
+Component flow (simplified):
 
-### Building for Production
-
-Build the project for production:
-
-```bash
-npm run build
+```
+Client
+ ├─ AuthContext -> protects routes
+ ├─ Pages
+ │   ├─ /login
+ │   ├─ /tenant-dashboard
+ │   └─ /landlord-dashboard
+ └─ UI Components (Cards, Charts, Modals)
 ```
 
-Preview the production build:
+---
 
-```bash
-npm run preview
-```
-
-## Project Structure
+## Project structure
 
 ```
 src/
-├── App.jsx                # Main app component and routing
-├── main.jsx               # React entry point, context providers
-├── AuthContext.jsx        # Authentication and user/role context
-├── LandlordDashboard.jsx  # Landlord dashboard UI & logic
-├── TenantDashboard.jsx    # Tenant dashboard UI & logic
-├── components/            # Reusable UI components and modals
-├── assets/                # Images and logos
-├── index.css              # Global styles and Tailwind imports
-└── utils/                 # Utility functions
+ ├─ assets/            # images, icons
+ ├─ components/        # reusable UI components (cards, forms, modals)
+ ├─ context/           # AuthContext, RoleContext
+ ├─ pages/             # TenantDashboard.jsx, LandlordDashboard.jsx, Auth pages
+ ├─ services/          # firebase.js, api wrappers, data helpers
+ ├─ utils/             # helpers, formatters
+ └─ index.css           # Tailwind imports and global styles
 ```
 
-## Design & UX Highlights
+---
 
-- **Header**: Logo, theme toggle, profile dropdown, and smart navigation
-- **Sign Up**: Glassmorphism, password strength meter, validation checklist, animated partner logos
-- **Dashboards**: Modern cards, charts, tables, and actionable insights
-- **Protected Routes**: Role-based access (can be toggled for demo mode)
-- **Demo Mode**: Instantly preview dashboards with mock data (no sign-in required)
+## Getting started (development)
 
-## Customization
+**Prerequisites**
 
-- Easily adjust colors, spacing, and typography via Tailwind classes
-- To enable/disable authentication, toggle the relevant logic in `AuthContext` and dashboard components
+* Node.js (v16+)
+* npm or yarn
+* Optional: a Firebase project for full backend functionality
+
+**Install & run**
+
+```bash
+# clone
+git clone https://github.com/your-username/rentcredit.git
+cd rentcredit
+
+# install
+npm install
+
+# development
+npm run dev
+# open the URL printed by Vite (typically http://localhost:5173)
+```
+
+**Build & preview**
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+## Environment / production notes
+
+To connect a real Firebase project:
+
+1. Copy `.env.example` → `.env` and fill the Firebase config variables:
+
+```
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+...
+```
+
+2. For the public demo, demo mode uses mocked Firestore-like data so reviewers can explore features without keys.
+
+---
+
+## How the demo mode works
+
+Demo mode seeds the UI with representative mock data and disables write operations to external services. This allows anyone to explore the feature set quickly without setup.
+
+---
+
+## What I learned / engineering decisions
+
+* **Role-based UX:** Designing separate user flows for tenants and landlords and enforcing role checks both client-side (for UX) and via backend rules (for security).
+* **Firestore cost-awareness:** Schema decisions reduce document reads for common queries; aggregated counters and batched writes lower cost and latency.
+* **Progressive UX:** Demo mode + lightweight animations improve perceived polish and testability.
+* **Deployment hygiene:** Vite + Netlify serves a fast static SPA while keeping serverless functions for future features.
+
+---
+
+## Measurable trade-offs & known limitations
+
+* The “credit score” is simulated — real integration needs partnerships and privacy workflows.
+* Firestore rules need further hardening for multi-tenant production usage.
+* No payment gateway integration in demo; payment actions are mocked to prevent accidental transactions.
+
+---
+
+## Roadmap / Next steps
+
+* Integrate a secure payments provider (sandbox) and webhook handling.
+* Add Cloud Functions for notifications and server-side credit calculation.
+* Improve analytics: track event funnels and retention metrics.
+* Mobile PWA support with offline sync for weak-network areas.
+* Admin analytics dashboard for landlord cohorts.
+
+---
+
+## Contributing
+
+This project is MIT-licensed and open for contributions. If you want to try changes locally:
+
+1. Fork the repo
+2. Create a branch and implement changes
+3. Open a PR with a brief description of the impact
+
+---
+
+## Contact & credentials
+
+**Author:** Adithya Sivakumar — B.E. Computer Science, SSN College of Engineering 
+**Email:** [adithya2410402@ssn.edu.in](mailto:adithya2410402@ssn.edu.in) 
+**LinkedIn:** [https://linkedin.com/in/adithyasivakumar](https://linkedin.com/in/adithyasivakumar) 
+**Repo:** [https://github.com/your-username/rentcredit](https://github.com/your-username/rentcredit) 
+**Live demo:** [https://rentcredit0.netlify.app/](https://rentcredit0.netlify.app/) 
+
+---
 
 ## License
 
-This project is open source and available under the MIT License.
-
+MIT © 2025 Adithya Sivakumar
 
