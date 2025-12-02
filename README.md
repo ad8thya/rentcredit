@@ -34,16 +34,14 @@ In many rental markets, rent payments do not contribute to tenants' credit histo
 
 ## Live demo & screenshots
 - **Live demo:** https://rentcredit0.netlify.app/  
-- Add screenshots to `/docs/screenshots/` and reference them here, for example:
-  - `docs/screenshots/login.png` — Login / Demo mode  
-  - `docs/screenshots/tenant-dashboard.png` — Tenant dashboard & credit chart  
-  - `docs/screenshots/landlord-dashboard.png` — Landlord view & tenant list  
-  - `docs/screenshots/demo-gif.gif` — Quick 10–20s walkthrough (optional)
 
-Embed example:
 ```md
-![Login screen](docs/screenshots/login.png)
-![Tenant dashboard](docs/screenshots/tenant-dashboard.png)
+[Login screen](docs/screenshots/login.png)
+[Tenant dashboard](docs/screenshots/tenantdashboard.png)
+[Landlord dashboard](docs/screenshots/landlorddashboard.png)
+[User Navigation](docs/screenshots/choice.png)
+[Landing Page](docs/screenshots/landingpage.png)
+
 ````
 
 ---
